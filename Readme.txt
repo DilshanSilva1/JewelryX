@@ -5,3 +5,4 @@ front end done using react,tailwind,bootstrap
 navbar points to different areas in the page
 shop section points to another page using reacts single page principle
 in the shop section items from the database can be observed,searched for, filtered and displayed based on category.
+steps to open > clone repo into folder> open folder in ide > backend>productcatalogapplication and run
