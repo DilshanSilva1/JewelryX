@@ -1,0 +1,310 @@
+{
+	"info": {
+		"_postman_id": "9ca8f8a8-afa7-45ea-8080-ba84672a5c03",
+		"name": "JewelryXColletionAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47629725",
+		"_collection_link": "https://sdilking4-8219772.postman.co/workspace/fe7db1bf-72e2-4884-8e97-4ca7a4f5c956/collection/47629725-9ca8f8a8-afa7-45ea-8080-ba84672a5c03?action=share&source=collection_link&creator=47629725"
+	},
+	"item": [
+		{
+			"name": "productsRequest",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Aug 2025 16:27:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 211,\n        \"name\": \"Silver locket\",\n        \"description\": \"Locket made of Silver\",\n        \"price\": 299.99,\n        \"imageURL\": \"https://placehold.co/600x400\",\n        \"categoryId\": 122\n    },\n    {\n        \"id\": 212,\n        \"name\": \"Ear cuff Earrings\",\n        \"description\": \"Ear cuff type earring, silver\",\n        \"price\": 99.99,\n        \"imageURL\": \"https://placehold.co/600x400\",\n        \"categoryId\": 123\n    },\n    {\n        \"id\": 213,\n        \"name\": \"Gold anklet\",\n        \"description\": \"Golden anklet footwear\",\n        \"price\": 199.99,\n        \"imageURL\": \"https://placehold.co/600x400\",\n        \"categoryId\": 124\n    },\n    {\n        \"id\": 214,\n        \"name\": \"Diamond Ring\",\n        \"description\": \"Diamond Ring Solitaire\",\n        \"price\": 1599.99,\n        \"imageURL\": \"https://placehold.co/600x400\",\n        \"categoryId\": 121\n    },\n    {\n        \"id\": 215,\n        \"name\": \"Pendant\",\n        \"description\": \"Necklace with charm or pendant\",\n        \"price\": 699.99,\n        \"imageURL\": \"https://placehold.co/600x400\",\n        \"categoryId\": 122\n    },\n    {\n        \"id\": 216,\n        \"name\": \"Gold chain\",\n        \"description\": \"Chain made of gold\",\n        \"price\": 399.99,\n        \"imageURL\": \"https://placehold.co/600x400\",\n        \"categoryId\": 122\n    },\n    {\n        \"id\": 217,\n        \"name\": \"Promise Ring\",\n        \"description\": \"Promise ring for engagements\",\n        \"price\": 499.99,\n        \"imageURL\": \"https://placehold.co/600x400\",\n        \"categoryId\": 121\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "CategoriesRequest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/categories",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/categories",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Aug 2025 16:27:35 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 122,\n        \"name\": \"Necklaces\",\n        \"products\": []\n    },\n    {\n        \"id\": 123,\n        \"name\": \"Earrings\",\n        \"products\": []\n    },\n    {\n        \"id\": 124,\n        \"name\": \"Anklets\",\n        \"products\": []\n    },\n    {\n        \"id\": 121,\n        \"name\": \"Rings\",\n        \"products\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "ProductByCategoryRequest",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/products/category/122",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"category",
+								"122"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Aug 2025 16:27:53 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 211,\n        \"name\": \"Silver locket\",\n        \"description\": \"Locket made of Silver\",\n        \"price\": 299.99,\n        \"imageURL\": \"https://placehold.co/600x400\",\n        \"categoryId\": 122\n    },\n    {\n        \"id\": 215,\n        \"name\": \"Pendant\",\n        \"description\": \"Necklace with charm or pendant\",\n        \"price\": 699.99,\n        \"imageURL\": \"https://placehold.co/600x400\",\n        \"categoryId\": 122\n    },\n    {\n        \"id\": 216,\n        \"name\": \"Gold chain\",\n        \"description\": \"Chain made of gold\",\n        \"price\": 399.99,\n        \"imageURL\": \"https://placehold.co/600x400\",\n        \"categoryId\": 122\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "HomeRequest",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080",
+					"host": [
+						"localhost"
+					],
+					"port": "8080"
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080",
+							"host": [
+								"localhost"
+							],
+							"port": "8080"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Last-Modified",
+							"value": "Fri, 15 Aug 2025 15:34:08 GMT"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=UTF-8"
+						},
+						{
+							"key": "Content-Language",
+							"value": "en-US"
+						},
+						{
+							"key": "Content-Length",
+							"value": "326"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Aug 2025 16:26:28 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\" />\n        <title>React App</title>\n        <script type=\"module\" crossorigin src=\"/assets/index-DQkdVbh9.js\"></script>\n        <link rel=\"stylesheet\" crossorigin href=\"/assets/index-fLQKFCKT.css\">\n  \n    </head>\n    <body>\n        <div id=\"root\"></div>\n    </body>\n</html>"
+				}
+			]
+		}
+	]
+}
