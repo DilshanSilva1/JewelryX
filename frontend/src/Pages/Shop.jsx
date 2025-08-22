@@ -9,7 +9,17 @@ function Shop() {
   const [searchWord, setSearchWord] = useState(""); //word used to search products by default is empty
   const [sortOrder, setSortOrder] = useState("asc"); //ascending default sort order
 
-  //  Load Bootstrap CSS & JS only when on this page
+  // NEW STATES for creating products
+  const [showAddForm, setShowAddForm] = useState(false); //toggle for showing/hiding form
+  const [newProduct, setNewProduct] = useState({
+    name: "",
+    description: "",
+    price: 0,
+    imageURL: "",
+    categoryId: null
+  });
+
+  //  Load Bootstrap only when on this page because there was some issues with using both tailwind and bootstrap
   useEffect(() => {
     const cssLink = document.createElement('link');
     cssLink.rel = 'stylesheet';
@@ -26,6 +36,7 @@ function Shop() {
     };
   }, []);
 
+  // fetch product and categories from backend
   useEffect(() => {
     fetch('http://localhost:8080/api/products')
       .then(response => response.json())
@@ -51,6 +62,29 @@ function Shop() {
     setSelectedCategory(categoryId ? Number(categoryId) : null);
   };
 
+  // Handle creating a new product
+  const handleCreateProduct = () => {
+    fetch("http://localhost:8080/api/products", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newProduct)
+    })
+    .then(res => res.json())
+    .then(data => {
+      setProducts([...products, data]); // add the new product to state
+      setShowAddForm(false);             // hide the form
+      setNewProduct({                    // reset the form
+        name: "",
+        description: "",
+        price: 0,
+        imageURL: "",
+        categoryId: null
+      });
+    })
+    .catch(err => console.error(err));
+  };
+
+  // FILTERING and SORTING
   const filteredProducts = products
     .filter(product => { //filtering the products based on category then based on name searched
       return (
@@ -71,6 +105,7 @@ function Shop() {
     <div className='container'>
       <h1 className='my-4'>Jewelry Shop</h1>
 
+      {/* Search, Sort, Filter Row */}
       <div className='row align-items-center mb-4'>
 
         <div className='col-md-4 col-sm-12 mb-12'>
@@ -93,14 +128,74 @@ function Shop() {
         </div>
 
       </div>
+
+      {/* displaying products */}
       <div>
         {filteredProducts.length ? (
-          //DISPLAY PRODUCTS
           <ProductList products={filteredProducts} />
         ) : (
           <p>No Products Found</p>
         )}
       </div>
+
+      {/* creating a new product */}
+      <div className="d-flex justify-content-center my-4">
+        <button
+          className="btn btn-success"
+          onClick={() => setShowAddForm(true)}
+        >
+          + Create New Product
+        </button>
+      </div>
+
+      {/* a form for creating the product accepting the parameters */}
+      {showAddForm && (
+        <div className="card p-4 mb-4">
+          <h4>Add New Product</h4>
+          <input
+            type="text"
+            placeholder="Name"
+            className="form-control mb-2"
+            value={newProduct.name}
+            onChange={e => setNewProduct({...newProduct, name: e.target.value})}
+          />
+          <input
+            type="text"
+            placeholder="Description"
+            className="form-control mb-2"
+            value={newProduct.description}
+            onChange={e => setNewProduct({...newProduct, description: e.target.value})}
+          />
+          <input
+            type="number"
+            placeholder="Price"
+            className="form-control mb-2"
+            value={newProduct.price}
+            onChange={e => setNewProduct({...newProduct, price: parseFloat(e.target.value)})}
+          />
+          <input
+            type="text"
+            placeholder="Image URL"
+            className="form-control mb-2"
+            value={newProduct.imageURL}
+            onChange={e => setNewProduct({...newProduct, imageURL: e.target.value})}
+          />
+          <select
+            className="form-control mb-2"
+            value={newProduct.categoryId || ""}
+            onChange={e => setNewProduct({...newProduct, categoryId: Number(e.target.value)})}
+          >
+            <option value="">Select Category</option>
+            {categories.map(cat => (
+              <option key={cat.id} value={cat.id}>{cat.name}</option>
+            ))}
+          </select>
+          <div className="d-flex gap-2">
+            <button className="btn btn-primary" onClick={handleCreateProduct}>Add Product</button>
+            <button className="btn btn-secondary" onClick={() => setShowAddForm(false)}>Cancel</button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
