@@ -1,5 +1,6 @@
 package com.ecom.productcatalog.DTO;
 
+import com.ecom.productcatalog.Entities.CategoryEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,7 @@ public class ProductDTO {
     private double price;
     private String imageURL;
     private Long categoryId;
+    private String categoryName;
 
 
 }

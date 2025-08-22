@@ -61,6 +61,21 @@ function Shop() {
   const handleCategorySelect = (categoryId) => {
     setSelectedCategory(categoryId ? Number(categoryId) : null);
   };
+// a handle for deleting a product.
+const handleRemoveProduct = (productId) => {
+  fetch(`http://localhost:8080/api/products/${productId}`, {
+    method: "DELETE"
+  })
+    .then((res) => {
+      // Spring typically returns 204 No Content for deletes
+      if (!res.ok && res.status !== 204) {
+        throw new Error("Failed to delete");
+      }
+      // remove from UI state
+      setProducts((prev) => prev.filter((p) => p.id !== productId));
+    })
+    .catch((err) => console.error("Remove product error:", err));
+};
 
   // Handle creating a new product
   const handleCreateProduct = () => {
@@ -132,7 +147,10 @@ function Shop() {
       {/* displaying products */}
       <div>
         {filteredProducts.length ? (
-          <ProductList products={filteredProducts} />
+          <ProductList
+            products={filteredProducts}
+            onRemove={handleRemoveProduct}
+          />
         ) : (
           <p>No Products Found</p>
         )}

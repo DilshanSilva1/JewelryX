@@ -26,7 +26,7 @@ public class CategoryService {
                     Set<ProductDTO> products = cat.getProducts().stream()
                             .map(prod -> new ProductDTO(
                                     prod.getId(), prod.getName(),
-                                    prod.getDescription(), prod.getPrice(),prod.getImageURL(),prod.getCategory().getId()
+                                    prod.getDescription(), prod.getPrice(),prod.getImageURL(),prod.getCategory().getId(),prod.getCategory().getName()
                             ))
                             .collect(Collectors.toSet());
                     return new CategoryDTO(cat.getId(), cat.getName(), products);
